@@ -22,7 +22,7 @@ public class HP : MonoBehaviour
     {
         if (other.gameObject.tag == "Target")
         {
-            fill -= 0.3f * Time.deltaTime;
+            fill -= 0.4f * Time.deltaTime;
             hp.fillAmount = fill;
             if (fill <= 0f)
             {

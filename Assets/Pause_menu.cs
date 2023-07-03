@@ -8,10 +8,8 @@ public class Pause_menu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public GameObject text;
-    public GameObject win;
-    public GameObject crosshair;
-    public GameObject score;
+    public GameObject canvas;
+    public GameObject loseText;
     public Weapon playerWeapon;
 
     void Awake()
@@ -39,10 +37,8 @@ public class Pause_menu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
 
-        text.SetActive(true);
-        win.SetActive(true);
-        crosshair.SetActive(true);
-        score.SetActive(true);
+        canvas.SetActive(true);
+        loseText.SetActive(true);
 
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
@@ -62,10 +58,8 @@ public class Pause_menu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
 
-        text.SetActive(false);
-        win.SetActive(false);
-        crosshair.SetActive(false);
-        score.SetActive(false);
+        canvas.SetActive(false);
+        loseText.SetActive(false);
 
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
         
@@ -74,10 +68,7 @@ public class Pause_menu : MonoBehaviour
             audio.Pause();
         }
 
-        //playerWeapon.enabled = false;
         playerWeapon.GetComponent<Weapon>().enabled = false;
-
-
 
         GameIsPaused = true;
     }
